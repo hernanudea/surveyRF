@@ -9,14 +9,14 @@ import java.io.Serializable;
 @Table(name = "SURVEYS_RESPONSE_TYPE_OPTION")
 public class ResponseOptionPOJO implements Serializable {
     @Id
-    @Column(name = "ID_RESPONSE_TYPE_OPTION")
+    @Column(name = "ID_RESPONSES_TYPE_OPTION")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idResponseTypeOption;
 
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "ID_SURVEY_TYPE_OPEN", nullable = false)
-//    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-//    private SurveyPOJO survey;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_SURVEY_TYPE_OPEN", nullable = false)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private SurveyPOJO survey;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_QUESTION", nullable = false)
@@ -32,7 +32,7 @@ public class ResponseOptionPOJO implements Serializable {
     }
 
     public ResponseOptionPOJO(SurveyPOJO survey, QuestionPOJO question, OptionPOJO option) {
-//        this.survey = survey;
+        this.survey = survey;
         this.question = question;
         this.option = option;
     }
@@ -45,13 +45,13 @@ public class ResponseOptionPOJO implements Serializable {
         this.idResponseTypeOption = idResponseTypeOption;
     }
 
-//    public SurveyPOJO getSurvey() {
-//        return survey;
-//    }
-//
-//    public void setSurvey(SurveyPOJO survey) {
-//        this.survey = survey;
-//    }
+    public SurveyPOJO getSurvey() {
+        return survey;
+    }
+
+    public void setSurvey(SurveyPOJO survey) {
+        this.survey = survey;
+    }
 
     public QuestionPOJO getQuestion() {
         return question;
@@ -73,7 +73,7 @@ public class ResponseOptionPOJO implements Serializable {
     public String toString() {
         return "ResponseOptionPOJO{" +
                 "idResponseTypeOption=" + idResponseTypeOption +
-//                ", survey=" + survey +
+                ", survey=" + survey +
                 ", question=" + question +
                 ", option=" + option +
                 '}';

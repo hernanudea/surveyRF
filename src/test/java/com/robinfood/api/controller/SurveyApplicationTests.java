@@ -1,4 +1,4 @@
-package com.robinfood.api;
+package com.robinfood.api.controller;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("questions")
+@RequestMapping("question")
 public class QuestionRestController {
 
     private IQuestionService questionService;
@@ -28,7 +28,7 @@ public class QuestionRestController {
 
     @GetMapping("")
     public ResponseEntity<?> findAll() {
-        LOGGER.info("#### En el metodo findAll");
+        LOGGER.info("#### Buscando las preguntas");
         Map<String, Object> response = new HashMap<>();
         List<QuestionPOJO> list = null;
         try {
