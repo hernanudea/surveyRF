@@ -27,7 +27,7 @@ public class QuestionRestController {
     }
 
     @GetMapping("")
-    private ResponseEntity<?> findAll() {
+    public ResponseEntity<?> findAll() {
         LOGGER.info("#### En el metodo findAll");
         Map<String, Object> response = new HashMap<>();
         List<QuestionPOJO> list = null;
@@ -39,16 +39,11 @@ public class QuestionRestController {
             response.put("message", "Error al realizar la consulta de las preguntas para la encuenta");
             LOGGER.error("error", e);
         }
-        if (list == null || list.size()==0) {
-            LOGGER.info("#### vacio");
+        if (list == null || list.size() == 0) {
             response.put("message", "No se han creado preguntas en base de datos para mostrar!");
             return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
         }
         response.put("questions", list);
-        for (QuestionPOJO q : list) {
-            LOGGER.info("#### Question:" + q.toString());
-        }
-        LOGGER.info("#### response ok");
         return new ResponseEntity<List<QuestionPOJO>>(list, HttpStatus.OK);
     }
 }

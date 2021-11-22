@@ -6,12 +6,12 @@ import java.util.List;
 
 public interface IQuestionTypeService {
 
-    public List<QuestionTypePOJO> findAll();
+    List<QuestionTypePOJO> findAll();
 
-    public QuestionTypePOJO findOne(Long idQuestionType);
+    QuestionTypePOJO findOne(Long idQuestionType);
 
-    public QuestionTypePOJO save(QuestionTypePOJO questionType);
+    QuestionTypePOJO save(QuestionTypePOJO questionType);
 
-    public void delete(Long idQuestionType);
+    void delete(Long idQuestionType);
 
 }
