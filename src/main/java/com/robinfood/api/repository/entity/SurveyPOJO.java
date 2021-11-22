@@ -25,15 +25,15 @@ public class SurveyPOJO implements Serializable {
     @Column(name = "ID_RESTAURANT")
     private String idRestaurant;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_RESPONSE_TYPE_OPTION", nullable = false)
-//    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<ResponseOptionPOJO> listResponseOption;
 
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_RESPONSE_TYPE_OPEN", nullable = false)
-//    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<ResponseOpenPOJO> listResponseOpen;
 
     public SurveyPOJO() {
